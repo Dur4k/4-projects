@@ -2,9 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+.center {
+  @apply justify-self-center content-center self-center place-content-center items-center justify-center justify-items-center;
+}
+
 .btn1 {
   @apply cursor-pointer  border border-black w-full sm:p-1  mb-2 font-bold text-sm rounded-lg block;
 }
 .btn2 {
   @apply mr-1 cursor-pointer flex  border border-black w-4/5 sm:p-1  mb-2 font-bold text-sm rounded-lg self-center;
+}
+.letter {
+  @apply border-blue-300   px-3 items-center border-b-2 text-3xl inline-flex self-center justify-center mx-1 h-10 w-3;
+}
+.figure-container {
+  fill: transparent;
+  stroke: #fff;
+  stroke-width: 4px;
+  stroke-linecap: round;
 }

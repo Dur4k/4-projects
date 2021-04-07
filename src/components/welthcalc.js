@@ -23,6 +23,7 @@ const Wealtharrays = () => {
   useEffect(() => {
     fetchUser();
     fetchUser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   function dounbleMoney() {
     setUsers(
@@ -58,7 +59,7 @@ const Wealtharrays = () => {
           <strong className="flex self-center">{user.name}</strong>
         </div>
         <div className="flex self-center ">
-          <div class=" flex self-center break-all ">{formatMoney(user.perAnnual)}</div>
+          <div className=" flex self-center break-all ">{formatMoney(user.perAnnual)}</div>
         </div>
       </div>
     );

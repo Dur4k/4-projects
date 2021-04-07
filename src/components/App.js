@@ -1,10 +1,12 @@
 import React from "react";
+import Hangman from "./Hangman.js";
 import Wealtharrays from "./welthcalc.js";
 
 const App = () => {
   return (
     <div>
-      <Wealtharrays></Wealtharrays>
+      {/* <Wealtharrays /> */}
+      <Hangman />
     </div>
   );
 };
