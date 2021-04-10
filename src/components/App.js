@@ -1,12 +1,14 @@
 import React from "react";
-import Hangman from "./Hangman.js";
+import Cinema from "./cinemaComponnents/Cinema.js";
+import Hangman from "./hangman/Hangman.js";
 import Wealtharrays from "./welthcalc.js";
 
 const App = () => {
   return (
     <div>
-      {/* <Wealtharrays /> */}
+      <Cinema />
       <Hangman />
+      <Wealtharrays />
     </div>
   );
 };
