@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter, Route, withRouter, Switch } from "react-router-dom";
 
 function formatMoney(number) {
   return "£" + number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
@@ -117,4 +118,4 @@ const Wealtharrays = () => {
   );
 };
 
-export default Wealtharrays;
+export default withRouter(Wealtharrays);

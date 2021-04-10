@@ -15,9 +15,29 @@
 .letter {
   @apply border-blue-300   px-3 items-center border-b-2 text-3xl inline-flex self-center justify-center mx-1 h-10 w-3;
 }
+.seat {
+  @apply bg-gray-800 h-3 w-4 m-1  rounded-t-lg hover:bg-white cursor-pointer;
+}
+.occupied {
+  @apply bg-lightblue-800 h-3 w-4 m-1  rounded-t-lg hover:bg-lightblue-900;
+}
+.selected {
+  @apply bg-gray-300 h-3 w-4 m-1  rounded-t-lg hover:bg-white;
+}
+.priceTag {
+  @apply text-lightblue-800;
+}
 .figure-container {
   fill: transparent;
   stroke: #fff;
   stroke-width: 4px;
   stroke-linecap: round;
+}
+
+.screen {
+  transform: rotateX(-45deg);
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+}
+.per {
+  perspective: 1000px;
 }

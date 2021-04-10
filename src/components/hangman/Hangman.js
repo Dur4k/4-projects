@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import GameEnding from "./HangmanComponents";
-
-const words = ["wizzaard", "woord"];
-let word = words[Math.floor(Math.random() * words.length)];
+import GameEnding from "./HangmanComponents.js";
+import { BrowserRouter, Route, withRouter, Switch } from "react-router-dom";
 
 const Hangman = () => {
   let isPlaying = true;
@@ -14,6 +12,7 @@ const Hangman = () => {
   const [lost, setLost] = useState(0);
   const [wor, setWord] = useState("");
   const [info, setInfo] = useState(true);
+
   useEffect(() => {
     async function asyncFunc() {
       const response = await fetch("https://random-word-api.herokuapp.com/word?number=10");
@@ -96,7 +95,7 @@ const Hangman = () => {
     <div onKeyDown={registerKey} tabIndex={-1} className="relative h-screen">
       <div
         style={{
-          backgroundImage: "url(" + "https://i.pinimg.com/originals/de/ab/0b/deab0b4c134643fe3a8736bf018bdb42.jpg" + ")",
+          backgroundImage: "url(https://i.pinimg.com/originals/de/ab/0b/deab0b4c134643fe3a8736bf018bdb42.jpg)",
         }}
         className="bg-cover bg-center object-cover text-white flex flex-col self-center overflow-hidden m-0 h-screen "
       >
@@ -144,7 +143,7 @@ const Hangman = () => {
             <line x1="140" y1="150" x2="160" y2="180" className={incorrectWord.length >= 6 ? "" : `hidden`} />
           </svg>
 
-          <div className=" absolute top-10 right-40  sm:right-72   md:left-96 flex flex-col text-left sm:text-right ">
+          <div className=" absolute top-10 right-28  sm:right-72   md:left-96 flex flex-col text-left sm:text-right ">
             <div id="">
               <div className="font-semibold sm:text-left text-right underline  text-lg w-40 ">Wrong letters:</div>
               <p className="mx-3 text-right sm:text-left w-40 tracking-wider text-gray-200">{incorrectWord.join(", ")}</p>
@@ -170,4 +169,4 @@ const Hangman = () => {
   );
 };
 
-export default Hangman;
+export default withRouter(Hangman);
