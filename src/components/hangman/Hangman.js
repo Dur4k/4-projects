@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import GameEnding from "./HangmanComponents.js";
-import { BrowserRouter, Route, withRouter, Switch } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 const Hangman = () => {
   let isPlaying = true;

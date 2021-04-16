@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, withRouter, Switch } from "react-router-dom";
+import { Route, withRouter, Switch } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 import Screen1 from "./screen1";
@@ -13,7 +13,6 @@ const Cinema = () => {
   const [selectedMovie, setSelectedMovie] = useState("/");
   const [value, setValue] = useState(10);
   const [total, setTotal] = useState(0);
-  console.log(value);
   useEffect(() => {
     switch (selectedMovie) {
       case "joker":
@@ -39,14 +38,11 @@ const Cinema = () => {
     }
   }, [selectedMovie]);
 
-  console.log(selectedMovie);
-
   const handleClick = (a) => {
     if (a.target.classList.contains("seat") && !a.target.classList.contains("occupied")) {
       if (!a.target.classList.contains("selected")) {
         setTotal(value * seats);
         setSeats(seats + 1);
-        console.log(seats);
         a.target.classList.add("selected");
       } else if (a.target.classList.contains("selected")) {
         setSeats(seats - 1);

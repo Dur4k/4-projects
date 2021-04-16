@@ -27,6 +27,9 @@
 .priceTag {
   @apply text-lightblue-800;
 }
+.btn3 {
+  @apply rounded-2xl px-2 py-1 focus:border-gray-500  focus:outline-none;
+}
 .figure-container {
   fill: transparent;
   stroke: #fff;
@@ -40,4 +43,7 @@
 }
 .per {
   perspective: 1000px;
+}
+.hoverbtn:hover > .show {
+  display: block;
 }
