@@ -9,10 +9,11 @@ import Screen4 from "./screen4";
 
 const Cinema = () => {
   let history = useHistory();
-  const [seats, setSeats] = useState(1);
-  const [selectedMovie, setSelectedMovie] = useState("/");
+  const [seats, setSeats] = useState(0);
+  const [selectedMovie, setSelectedMovie] = useState("avangers");
   const [value, setValue] = useState(10);
   const [total, setTotal] = useState(0);
+  console.log(selectedMovie);
   useEffect(() => {
     switch (selectedMovie) {
       case "joker":
@@ -30,7 +31,7 @@ const Cinema = () => {
         setTotal(0);
         setSeats(1);
         break;
-      case "/":
+      case "avangers":
         setValue(10);
         setTotal(0);
         setSeats(1);
@@ -41,28 +42,34 @@ const Cinema = () => {
   const handleClick = (a) => {
     if (a.target.classList.contains("seat") && !a.target.classList.contains("occupied")) {
       if (!a.target.classList.contains("selected")) {
+        setSeats((seats) => seats + 1);
         setTotal(value * seats);
-        setSeats(seats + 1);
+
         a.target.classList.add("selected");
-      } else if (a.target.classList.contains("selected")) {
-        setSeats(seats - 1);
+      } else {
+        setSeats((seats) => seats - 1);
         setTotal(value * seats);
+        console.log(seats);
+        console.log(value);
+        // setSeats(seats - 1);
 
         a.target.classList.remove("selected");
       }
     }
   };
+
   useEffect(() => {
     const container = document.querySelector(".all");
+
     container.addEventListener("click", handleClick);
     return () => {
       container.removeEventListener("click", handleClick);
     };
-  }, [seats, handleClick]);
+  }, [value, seats]);
 
   const onChange = (e) => {
     setSelectedMovie(e.target.value);
-    history.push(`/${e.target.value}`);
+    history.push(`/cinemaSeats/${e.target.value}`);
   };
 
   return (
@@ -70,7 +77,7 @@ const Cinema = () => {
       <div className="my-9">
         <label>Pick a movie:</label>
         <select onChange={onChange} className="ml-3 py-1 appearance-none border-gray-900 px-2 text-black ">
-          <option value="">Avengers: Endgame ($10)</option>
+          <option value="avangers">Avengers: Endgame ($10)</option>
           <option value="joker">Joker ($12)</option>
           <option value="sinister">Sinnister ($8)</option>
           <option value="shrek">Shrek 4th ($6)</option>
@@ -94,17 +101,19 @@ const Cinema = () => {
         {/* perspective 1k */} <div className=" screen flex flex-col h-32 w-72 my-4 bg-white"></div>
       </div>
       {/* first row */}
+
       <Switch>
-        <Route exact path="/">
+        {" "}
+        <Route exact path="/cinemaSeats/avangers">
           <Screen1 seats={seats} total={total} />
-        </Route>
-        <Route exact path="/joker">
+        </Route>{" "}
+        <Route exact path="/cinemaSeats/joker">
           <Screen2 seats={seats} total={total} />
         </Route>
-        <Route exact path="/shrek">
+        <Route exact path="/cinemaSeats/shrek">
           <Screen3 seats={seats} total={total} />
         </Route>
-        <Route exact path="/sinister">
+        <Route exact path="/cinemaSeats/sinister">
           <Screen4 seats={seats} total={total} />
         </Route>
       </Switch>
