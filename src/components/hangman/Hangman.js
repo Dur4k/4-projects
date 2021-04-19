@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import GameEnding from "./HangmanComponents.js";
 import { withRouter } from "react-router-dom";
+import NavBar from "../NavBar.js";
 
 const Hangman = () => {
   let isPlaying = true;
@@ -99,8 +100,10 @@ const Hangman = () => {
         }}
         className="bg-cover bg-center object-cover text-white flex flex-col self-center overflow-hidden m-0 h-screen "
       >
-        <h1 className="w-52 center my-6 text-center text-black relative ">
-          {info ? "Win 10 times to get 10£" : "`"}
+        {" "}
+        <NavBar border="text-white border-none  sm:px-6 py-0.5  opacity-90 bg-gray-900" />
+        <h1 className="w-52 center my-6 text-center text-white relative mt-10 ">
+          {info ? "Get 10 trophies to win" : "`"}
           <div
             onMouseOver={() => {
               setInfo(!info);
@@ -108,7 +111,7 @@ const Hangman = () => {
             onMouseOut={() => {
               setInfo(!info);
             }}
-            className="-top-1 -right-4 rounded-xl bg-opacity-75    absolute bg-black text-white p-1"
+            className="-top-1 -right-7 rounded-xl bg-opacity-75    absolute bg-black text-white p-1"
           >
             {!info ? "Game end after 5   💀 " : "❓"}
           </div>
@@ -154,7 +157,6 @@ const Hangman = () => {
             {wor ? detectWords() : ""}
           </div>
         </div>
-
         {wor ? winningGame() : ""}
         <div
           className={`bg-black rounded-2xl center py-4 px-5 fixed -bottom-14 transform ease-in duration-500 ${

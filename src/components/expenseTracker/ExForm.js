@@ -23,7 +23,7 @@ const ExForm = ({ setListOfExpenses, listOfExpenses, setExpence, expences }) => 
   };
 
   return (
-    <div className="bg-white flex flex-col p-8 w-96  mx-auto  rounded-2xl mb-2">
+    <div className="bg-white flex flex-col sm:p-8 p-2 sm:w-96 w-80  mx-auto  rounded-2xl mb-2">
       <form onSubmit={onSubmit} id="form">
         <div class="form-control m-auto flex flex-col mb-4">
           <label for="text">

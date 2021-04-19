@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
+import NavBar from "./NavBar";
 
 function formatMoney(number) {
   return "£" + number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
@@ -67,6 +68,8 @@ const Wealtharrays = () => {
   });
   return (
     <div>
+      <NavBar border="border-black text-black sm:px-5" />
+
       <div className="bg-white flex flex-col  justify-center h-screen m-0 justify-self-center content-center self-center place-content-center items-center ">
         <div className="flex sm:p-5 m-0 max-w-full lg:w-2/4 w-full">
           <aside className=" mt-20  p-1 w-40 border-r-2 border-black ">

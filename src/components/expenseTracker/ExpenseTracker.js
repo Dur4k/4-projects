@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import NavBar from "../NavBar";
 import ExForm from "./ExForm";
 import ExTransactioins from "./ExTransactioins";
 
@@ -41,14 +42,13 @@ const ExpenseTracker = () => {
         allTransforms();
     }
   }, [setListOfExpenses, listOfExpenses, changingListView]);
-  //   useEffect(() => {
-  //     allTransforms();
-  //   }, [setListOfExpenses, listOfExpenses]);
 
   return (
-    <div className=" bg-gray-300 flex flex-col center h-screen flex-none">
+    <div className=" bg-gray-300 flex flex-col  h-screen flex-none  ">
+      <NavBar border="text-white-500 border-white-500 bg-gray-200 sm:px-5" />
+
       <div className="h-full mt-20">
-        <div className={`bg-white flex flex-col p-5 w-96 border-2 ${checkForSumColor} mx-auto center  rounded-2xl mb-3`}>
+        <div className={`bg-white flex flex-col p-5 sm:w-96 border-2 ${checkForSumColor} mx-auto center w-80 rounded-2xl mb-3`}>
           <div className="text-md">your balance</div>
           <div className="px-6 py-1 rounded-2xl">
             <div className="text-3xl">{total} £</div>
@@ -64,7 +64,7 @@ const ExpenseTracker = () => {
         />
 
         <div className=" bg-gray-300  flex-col  ">
-          <div className="bg-white flex flex-col p-5 w-96 border-2  mx-auto center rounded-2xl  ">
+          <div className="bg-white flex flex-col sm:p-5 p-2 sm:w-96 w-80 border-2  mx-auto center rounded-2xl  ">
             <div className="flex  justify-between w-full mb-2 text-sm">
               <button onClick={allTransforms} className={`flex border ${changingListView === 1 ? "border-gray-500" : ""} btn3 hover:border-gray-500`}>
                 💰All transactions

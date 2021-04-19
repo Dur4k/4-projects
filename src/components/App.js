@@ -9,7 +9,6 @@ import { Route, Switch } from "react-router-dom";
 const App = () => {
   return (
     <div>
-      <NavBar />
       <Switch>
         <Route exact path={"/"}>
           <ExpenseTracker />

@@ -95,7 +95,7 @@ const Screen4 = ({ seats, total }) => {
         </div>
       </div>
       <p className="text">
-        You have selected <span className="priceTag">{seats - 1}</span> seats for a price of $
+        You have selected <span className="priceTag">{seats}</span> seats for a price of $
         <span className="priceTag ml-1" id="total">
           {total}
         </span>
